@@ -1,0 +1,22 @@
+{
+  "name": "studyvue",
+  "version": "1.0.0",
+  "description": "my first vue pro",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuanLin0827/studyvue.git"
+  },
+  "author": "yuanlin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YuanLin0827/studyvue/issues"
+  },
+  "homepage": "https://github.com/YuanLin0827/studyvue#readme"
+}
