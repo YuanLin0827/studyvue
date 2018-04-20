@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../assets/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+    <hr>
+    <div id="app">
+        本场得分：
+        <span v-text="score"></span>
+        <br>
+        <button v-on:click="addscore">加分</button>
+        <button @click="reducescore">减分</button>
+        <br>
+        <input type="text" @keyup.enter="onEnter" v-model ="score2">
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                score: 0,
+                score2: 1
+            },
+            methods: {
+                addscore : function(){
+                    this.score++;
+                },
+                reducescore : function(){
+                    this.score--;
+                },
+                onEnter : function(){
+                    this.score += parseInt(this.score2);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+</html>
