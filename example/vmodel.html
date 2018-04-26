@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../assets/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>vmodel数据源绑定</h1>
+    <hr>
+    <div id="app">
+        原始文本信息：{{message}}看空格<br>
+        <p>v-model：<input type="text" v-model="message"></p>
+        <p>v-model.lazy:<input type="text" v-model.lazy="message"></p><!--懒加载，失去焦点才变化-->
+        <p>v-model.number:<input type="text" v-model.number="message"></p><!--必须是先输入数字，后面字符串忽略，先输入字符串无效果-->
+        <p>v-model.trim:<input type="text" v-model.trim="message"></p><!-- 去空格-->
+        <hr>
+        <p>文本域</p>
+        <textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
+        <hr>
+        <p>多选框</p>
+        <input type="checkbox" id="isTrue" v-model="flag">
+        <label for="isTrue">{{flag}}</label>
+        <hr>
+        <p>多选框绑定数组</p>
+        <input type="checkbox" id="forArray" value="zhangsan" v-model="names">
+        <label for="forArray">zhangsan</label>
+        <input type="checkbox" id="forArray" value="lisi" v-model="names">
+        <label for="forArray">lisi</label>
+        <input type="checkbox" id="forArray" value="wangwu" v-model="names">
+        <label for="forArray">wangwu</label>
+        <p>{{names}}</p>
+        <hr>
+        <p>单选框绑定</p>
+        <p>
+            <input type="radio" id="one" value="男" v-model="sex">
+            <label for="one">男</label>
+            <input type="radio" id="one" value="女" v-model="sex">
+            <label for="one">女</label>
+            <p>性别为：{{sex}}</p>
+        </p>
+    </div>
+    <script type="text/javascript">
+    var app = new Vue({
+        el : '#app',
+        data : {
+            message : 'Hello World!',
+            flag: true,
+            names: [],
+            sex: "男"
+        }
+    });
+    </script>
+</body>
+</html>
