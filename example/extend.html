@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../assets/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>extend实例构造器的扩展</h1>
+    <hr>
+    <author id="author"></author>
+    
+    <script type="text/javascript">//未来学组建时相关
+    var authorURl = Vue.extend({
+        template: "<p><a :href='authorUrl'>{{authorName}}</a></p>",
+        data: function(){
+            return {
+                authorName: 'yuanlin',
+                authorUrl: 'http://www.baidu.com'
+            }
+        }
+    });
+    new authorURl().$mount("#author");
+    
+    </script>
+</body>
+</html>

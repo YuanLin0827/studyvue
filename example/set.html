@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../assets/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>vue实例: set全局操作</h1>
+    <hr>
+    <div id="app">
+        {{count}}
+        <ul>
+            <li v-for="value in arr">{{value}}</li>
+        </ul>
+    </div>
+    <p><button onclick="add()">Add</button></p>
+    <script type="text/javascript">//vue在虚拟Dom中只操作数据下标或长度无法实现效果
+    function add(){
+        // Vue.set(setData,'count',2);//只能变一次呢～
+        // app.count++; //vue实例内的data参数；
+        // setData.count++;//js写法
+        // app.arr[1]='wangwu';//除非此前操作过虚拟dom，否则无法通过操作数组下表或长度来引起变化
+        Vue.set(app.arr,1,'wangwu');
+    }
+
+    var setData= {
+            count: 1,
+            goods: 'car',
+            arr: ['yuanlin','zhangsan','lisi']
+    };
+
+    var app = new Vue({
+        el : '#app',
+        data : setData
+    });
+    </script>
+</body>
+</html>
