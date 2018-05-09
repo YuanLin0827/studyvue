@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../assets/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Vue component组件1</h1>
+    <hr>
+    <div id="app">
+        <yuanlin test="测试"></yuanlin>
+        <!--全局组件可以在任意的vue作用域内使用，作用域外无效-->
+        <!-- <panda></panda>局部组件只能在申明的vue作用域里使用，此处无效 -->
+    </div>
+    <div id="app2">
+        <yuanlin></yuanlin>
+        <panda></panda>
+    </div>
+    <!-- <yuanlin></yuanlin> -->
+    <script type="text/javascript">
+        Vue.component('yuanlin', {
+            template: `
+            <p style="color:red">这是一个全局组件{{test}}</p>
+            `,
+            props: [//props必须放到内部
+                'test'
+            ]
+        });
+        var app = new Vue({
+            el: '#app',
+        });
+        var app2 = new Vue({
+            el: '#app2',
+            components: {
+                'panda': {
+                    template: `
+                    <p style="color:red">这是一个局部组件</p>
+                    `
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

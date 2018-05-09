@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../assets/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Vue component组件2--props</h1>
+    <hr>
+    <div id="app2">
+        <panda :from-here="address"></panda>
+    </div>
+    <!-- <yuanlin></yuanlin> -->
+    <script type="text/javascript">
+        var app2 = new Vue({
+            el: '#app2',
+            data:{
+                address: 'SiChuan'
+            },
+            components: {//props用于接收父组件的数据
+                'panda': {
+                    template: `
+                    <p style="color:red">Pandas from {{ fromHere }}</p>
+                    `,
+                    props: [
+                        'fromHere'
+                    ]
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

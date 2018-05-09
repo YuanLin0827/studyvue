@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../assets/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+    <hr>
+    <div id="app">
+        <p v-text="message"></p>
+    </div>
+    <template id="tamp">
+        <p style="color:red">这是template{{message}}模板</p>
+    </template>
+    <script type="x-template" id="temp2"><!--可以外部引用！-->
+        <p style="color:red">这是script{{message}}模板</p>
+    </script>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello World!'
+            },
+            template: '#temp2'
+            //模板会覆盖原来的dom结构
+            // `
+            //     <p style="color:green">这是vue模板</p>
+            // `
+        });
+    </script>
+</body>
+
+</html>
