@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../assets/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Vue component组件4-component标签</h1>
+    <hr>
+    <div id="app2">
+        <component :is="who"></component>
+        <button @click="change">变化</button><!--变换组件-->
+    </div>
+    <!-- <yuanlin></yuanlin> -->
+    <script type="text/javascript">
+        var city = {
+            template: `
+            <p style="color:green">这是city组件</p>
+            `
+        };
+        var panda = {
+            template: `
+            <p style="color:red">这是panda组件</p>
+            `,
+        };
+        var yuanlin = {
+            template: `
+            <p style="color:blue">这是yuanlin组件</p>
+            `,
+        };
+        
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                who:'city'
+            },
+            components: {
+                'panda': panda,
+                'city': city,
+                'yuanlin':yuanlin
+            },
+            methods:{
+                change: function(){
+                    if(this.who == 'city'){
+                        this.who = 'yuanlin';
+                    }else if(this.who =='yuanlin'){
+                        this.who = 'panda';
+                    }else{
+                        this.who ='city';
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
