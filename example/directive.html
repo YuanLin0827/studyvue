@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../assets/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+    <hr>
+    <div id="app">
+        <p v-yuanlin="color" v-text='num'></p>
+        <p>
+            <button @click="add">add</button>
+        </p>
+        <p>
+            <button onclick="unbind()">解绑</button>
+        </p>
+    </div>
+    <script type="text/javascript">
+        function unbind(){
+            app.$destroy();
+        }
+        Vue.directive('yuanlin', {
+            bind: function () {
+                // function (el, binding) {
+                // console.log(el);
+                // console.log(binding);
+                // console.log(binding.name);
+                // console.log(binding.expression)
+                // console.log(binding.value);
+                // el.style="color:"+binding.value;
+                console.log('1 --- bind绑定前');
+
+            },
+            inserted: function (el, binding) {
+                console.log('2 --- inserted插入后');
+                el.style = "color:" + binding.value;
+
+            },
+            update: function () {
+                console.log('3 --- update更新前');
+
+            },
+            componentUpdated: function (el, binding) {
+                console.log('4 --- componentUpdated更新后');
+                el.style = "color:green";
+
+            },
+            unbind: function () {
+                console.log('5 --- unbind解绑后');
+
+            }
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                num: 10,
+                color: "red"
+            },
+            methods: {
+                add: function () {
+                    this.num++;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
