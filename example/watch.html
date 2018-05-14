@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../assets/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>选项propsData</h1>
+    <hr>
+    <div id="app">
+        <p>温度：
+            <span v-text='temprature'></span>
+        </p>
+        <p>穿衣指南：
+            <span v-text='chuanyi'></span>
+        </p>
+        <button @click='add'>add</button>
+        <button @click='reduce'>reduce</button>
+    </div>
+    <script type="text/javascript">
+        var tips = ["短袖短裤", "衬衣长裤", "羽绒服"];
+        var app = new Vue({
+            el: '#app',
+            data: {
+                temprature: 21,
+                chuanyi: '衬衣长裤'
+            },
+            methods: {
+                add: function () {
+                    this.temprature += 5;
+                },
+                reduce: function () {
+                    this.temprature -= 5;
+                }
+            },
+            // watch: {
+            //     temprature: function (newVal, oldVal) {
+            //         if (newVal > 30) {
+            //             this.chuanyi = tips[0];
+            //         } else if (newVal > 10 & newVal <= 30) {
+            //             this.chuanyi = tips[1];
+            //         } else {
+            //             this.chuanyi = tips[2];
+            //         }
+            //     }
+            // }
+
+        });
+        app.$watch('temprature',function (newVal, oldVal){
+            if (newVal > 30) {
+                this.chuanyi = tips[0];
+            } else if (newVal > 10 & newVal <= 30) {
+                this.chuanyi = tips[1];
+            } else {
+                this.chuanyi = tips[2];
+            }
+        })
+    </script>
+</body>
+
+</html>
