@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../assets/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World!</h1>
+    <hr>
+    <div id="app">
+        本场得分：
+        <span v-text="score"></span>
+        <br>
+        <button v-on:click="addscore">加分</button>
+    </div>
+    <script type="text/javascript">
+        var mixScore = {
+            updated: function () {
+                console.log('数据发生了变化：' + this.score);
+            }
+        };
+        Vue.mixin({
+            updated: function () {
+                console.log('这是全局api');
+            }
+
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                score: 0,
+            },
+            methods: {
+                addscore: function () {
+                    this.score++;
+                },
+            },
+            updated:function(){
+                console.log('这是原声的updated');
+            },
+            mixins: [mixScore]
+        });
+    </script>
+</body>
+
+</html>
+
+</html>

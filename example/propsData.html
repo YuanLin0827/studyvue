@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../assets/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>选项propsData</h1>
+    <hr>
+    <yuanlin></yuanlin>
+    <script type="text/javascript">
+        var yuanlin_extends = Vue.extend({
+            template: `<div class='yuan'>
+            <p>{{message}}-- {{a}}</p>
+            <div v-html="html"></div>
+            </div>`,
+            data: function () {
+                return {
+                    message: 'propsData传递的值为：',
+                    html: '<p>多个元素需要一个父容器承载</p>'
+                }
+            },
+            props: ['a']
+        });
+
+        new yuanlin_extends({propsData:{ a: 520 }}).$mount("yuanlin")
+    </script>
+</body>
+
+</html>
